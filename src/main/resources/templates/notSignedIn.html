@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  ...
+</head>
+<body>
+<form th:action="@{/enter}" th:object="${customer}"
+      method="post" style="max-width: 600px; margin: 0 auto;">
+  <div class="m-3">
+
+    <div>
+      <button type="login" class="btn btn-primary">Log In</button>
+    </div>
+
+    <div>
+      <button type="signin" class="btn btn-primary">Sign In</button>
+    </div>
+
+  </div>
+</form>
+</body>
+</html>
+

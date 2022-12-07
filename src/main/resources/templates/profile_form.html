@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Profile</title>
+</head>
+<body>
+<h2>Profile</h2>
+Your account information is below.
+
+Email: [[${customer.getEmail()}]] <br/>
+
+
+First Name: [[${customer.getFirstName()}]] <br/>
+
+
+Last Name: [[${customer.getLastName()}]] <br/>
+
+
+Address: [[${customer.getLineOne()}]] <br/>
+         [[${customer.getLineTwo()}]] <br/>
+
+
+Pin Code:  [[${customer.getPinCode()}]] <br/>
+</body>
+</html>

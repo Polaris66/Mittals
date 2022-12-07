@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -35,6 +36,7 @@ public class AppController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
+        user.setWallet(1000);
         userRepo.save(user);
 
         return "register_success";
@@ -46,5 +48,12 @@ public class AppController {
         model.addAttribute("listUsers",listUsers);
 
         return "users";
+    }
+    long id = 1;
+    @GetMapping("/profile")
+    public String showProfileForm(Model model){
+        User user = userRepo.getReferenceById(id);
+        model.addAttribute(user);
+        return "profile";
     }
 }

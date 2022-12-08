@@ -93,7 +93,7 @@ public class AppController {
 
     @GetMapping("/customers")
     public String listUsers(Model model){
-        List<User> listUsers = userRepository.findAllByRole(1);
+        List<User> listUsers = userRepository.findAllByRole(0);
         model.addAttribute("listUsers",listUsers);
         return "customers";
     }
@@ -174,12 +174,7 @@ public class AppController {
     @PostMapping("/process_remove_user")
     public String remove_user(User user){
         userRepository.deleteById(user.getId());
-        if(current_user.getRole()==1) {
-            return "manager";
-        }
-        if(current_user.getRole()==2) {
-            return "admin";
-        }
-        return "manager";
+        return "admin";
     }
+
 }

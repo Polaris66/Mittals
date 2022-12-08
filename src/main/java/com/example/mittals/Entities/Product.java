@@ -12,14 +12,16 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 2, message = "Name must be at least 2 characters long")
+    @Column(name = "name",nullable = false)
     private String name;
 
-    @Size(min = 5, message = "Description must be at least 5 characters long")
+    @Column(name = "description",nullable = false)
     private String description;
 
+    @Column(name = "image",nullable = false)
     private String image;
 
+    @Column(name = "price",nullable = false)
     @Pattern(regexp = "^[0-9]+([.][0-9]{1,2})?", message = "Expected format: 5, 5.99, 15, 15.99")
     private String price;
 

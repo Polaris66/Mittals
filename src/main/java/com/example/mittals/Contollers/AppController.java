@@ -73,4 +73,12 @@ public class AppController {
         productRepository.save(product);
         return "register_success";
     }
+
+    @GetMapping("/products")
+    public String listProducts(Model model){
+        List<Product> listProducts = productRepository.findAll();
+        model.addAttribute("listProducts",listProducts);
+
+        return "products";
+    }
 }

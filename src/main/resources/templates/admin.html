@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<title>Main Page</title>
+<style>
+    .container{
+        height: 200px;
+        width: 500px;
+        border: 2px solid black;
+        margin-top: 30px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align:center;">Main Page</h1>
+    <a href="/managers">
+        <button class="btn btn-primary btn-lg">See List of Managers</button>
+    </a>
+    <a href="/customers">
+        <button class="btn btn-primary btn-lg">See List of Customers</button>
+    </a>
+    <a href="/products_manager">
+        <button class="btn btn-primary btn-lg">See List of Products</button>
+    </a>
+</div>
+</body>
+</html>

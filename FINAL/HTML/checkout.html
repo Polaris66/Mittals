@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../src/main/resources/static/css/styles_checkout.css">
+    <link rel="icon" href="../../src/main/resources/static/images/favicon.ico">
+</head>
+<body>
+
+<h1>Checkout Form</h1>
+
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/action_page.php">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" >
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address">
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state">
+              </div>
+              <div class="col-50">
+                <label for="pincode">Pincode</label>
+                <input type="text" id="pincode" name="pincode">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <div class="available_balance">
+              <span id="available_balance_for_size">Available Balance :</span>
+              <div class="box">
+                10000
+              </div>
+            </div>
+
+            <br>
+            <br>
+
+            <h3>Top up Wallet</h3>
+            <div class="top_up_wallet">
+
+              <input type="number" id="top_up_wallet" placeholder="Enter amount to add">
+
+              <button type="add_now" name="Add now">Add now</button>
+            </div>
+
+
+
+
+
+          </div>
+
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing address
+        </label>
+        <input type="submit" value="Continue to checkout" class="btn">
+      </form>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -3,10 +3,12 @@ package com.example.mittals.Entities;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "customers")
-public class User {
+import java.util.HashSet;
+import java.util.Set;
 
+@Entity
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,22 +19,34 @@ public class User {
     @Column(nullable = false, length = 64)
     private String password;
 
+    @Column(nullable = false, length = 64)
+    private int role;
 
-    @Column(name = "first_name", nullable = false, length = 20)
+
+    @Column(name = "first_name", length = 20)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false, length = 20)
+    @Column(name = "last_name", length = 20)
     private String lastName;
 
 
-    @Column(name = "line_one",nullable = false,length = 50)
+    @Column(name = "line_one",length = 50)
     private String lineOne;
 
-    @Column(name = "line_two", nullable = false, length = 50)
+    @Column(name = "line_two", length = 50)
     private String lineTwo;
 
-    @Column(name = "pin_code", nullable = false, length = 10)
+    @Column(name = "pin_code", length = 10)
     private String pinCode;
+
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
 
     public String getLineOne() {
         return lineOne;

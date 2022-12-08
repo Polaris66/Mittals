@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../../src/main/resources/static/css/styles_profile.css">
+    <link rel="icon" href="../../src/main/resources/static/images/favicon.ico">
+  </head>
+  <body>
+    <h1>PROFILE</h1>
+    <p id="details_statement">Please fill your details.</p>
+    <form class="profile_page" action="../../src/main/resources/templates/index.html" method="post">
+      <div class="container">
+        <label for="text"><b>Username</b></label>
+        <input type="text" name="username" placeholder="Enter username" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" name="password" placeholder="Enter password" required>
+
+        <label for="text"><b>Address</b></label>
+        <input type="text" name="address_1" placeholder="Enter address line 1" required>
+        <input type="text" name="address_2" placeholder="Enter address line 2" required>
+        <input type="text" name="address_3" placeholder="Enter address line 3" required>
+        <input type="text" name="address_4" placeholder="Enter address line 4" required>
+
+        <label for="pincode"><b>Pincode</b></label>
+        <input type="number" name="pincode" placeholder="Enter pincode" required>
+
+        <div class="wallet_balance">
+          <b><span id="wallet_balance_for_size">Wallet Balance :</span></b>
+          <div class="box">
+            1000
+          </div>
+        </div>
+
+
+        <!-- <input type="submit" name="submit" value="Save Changes"> -->
+        <button type="submit" name="save_changes">Save Changes</button>
+
+      </div>
+    </form>
+  </body>
+</html>

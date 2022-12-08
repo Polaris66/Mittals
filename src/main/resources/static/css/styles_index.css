@@ -1,0 +1,160 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+.navbar1{ 
+  /* background-color: #F7A4A4; */
+  background-image: linear-gradient(to right,grey,black);
+  height:60px;
+  font-family: cursive;
+}
+
+.logo{
+  float:left;
+}
+
+.navbar1 ul{
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.navbar1 ul li{
+  display: inline-block;
+  margin: 0 60px;
+  font-size: 30px;
+}
+
+.search{
+  margin-top: 6px;
+  display: inline-block;
+  float: right;
+  margin-left: 100px;
+}
+
+.search input{
+  height: 30px;
+  width:500px;
+  font-size: 23px
+}
+
+.navbar1 a{
+  text-decoration: none;
+  /* color: #0E5E6F; */
+  color:white;
+}
+
+.navbar1 a:hover{
+  color:red;
+}
+
+.navbar2{
+  /* background-color: #FEBE8C; */
+  background-image: linear-gradient(to right,black,grey);
+  height:40px;
+  font-family: cursive;
+}
+
+.navbar2 ul{
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.navbar2 ul li{
+  display: inline-block;
+  margin: 0 22px;
+  font-size: 20px;
+}
+
+.navbar2 a{
+  text-decoration: none;
+  /* color: #557153; */
+  color:white;
+}
+
+.navbar2 select{
+  margin:0;
+  border:0;
+  padding:0;
+  background-color: #F0DBDB;
+  font-family: cursive;
+}
+
+.footer1{
+  background-color: #D6E4E5;
+  position:fixed;
+  bottom:0;
+  width: 100%;
+  text-align: right;
+}
+
+.line1{
+  font-family: monospace;
+  font-style: bold;
+  font-size: 30px;
+  text-decoration: underline;
+  margin-right: 20px;
+}
+
+.line2{
+  font-family: monospace;
+  margin:0 12px;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.images1{
+  display: flex;
+  justify-content: space-between;
+  margin: 130px 0;
+}
+
+.images1 img{
+  height:200px;
+  width:320px;
+  margin: 0 20px;
+}
+
+.images2{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.images2 img{
+  height:200px;
+  width:320px;
+  margin: 0 20px;
+}
+
+
+.show_items_button{
+  margin-left:32%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom:140px;
+}
+
+.show_items_button input{
+  margin:auto;
+  height: 80px;
+  width: 550px;
+  font-size: 40px;
+  background-color: #1F4690;
+  font-family: cursive;
+  color: white;
+  border:solid;
+  font-style: oblique;
+  border-width: medium;
+}
+
+
+body{
+  background-image: linear-gradient(to right,white,#5F9DF7 85%);
+}
+
+
+#show_items_button_for_color{
+  color:#DC3535;
+}

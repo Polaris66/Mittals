@@ -1,6 +1,8 @@
 package com.example.mittals.Contollers;
 
+import com.example.mittals.Entities.Product;
 import com.example.mittals.Entities.User;
+import com.example.mittals.Repositories.ProductRepository;
 import com.example.mittals.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +19,8 @@ public class AppController {
     @Autowired
     private UserRepository userRepo;
 
+    @Autowired
+    private ProductRepository productRepository;
     @GetMapping("")
     public String viewHomePage()
     {
@@ -55,5 +59,18 @@ public class AppController {
         User user = userRepo.getReferenceById(id);
         model.addAttribute(user);
         return "profile";
+    }
+
+    @GetMapping("add-products")
+    public String showProductMakingForm(Model model)
+    {
+        model.addAttribute("product", new Product());
+        return  "product_form";
+    }
+
+    @PostMapping("/make_product")
+    public String makeProduct(Product product){
+        productRepository.save(product);
+        return "register_success";
     }
 }

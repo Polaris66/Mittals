@@ -27,14 +27,22 @@ public class Product {
     @Column(name = "image",nullable = false)
     private String image;
 
+
     @Column(name = "price",nullable = false)
-    @Pattern(regexp = "^[0-9]+([.][0-9]{1,2})?", message = "Expected format: 5, 5.99, 15, 15.99")
-    private String price;
+    private int price;
 
 
     @ManyToOne
     @JoinColumn(name="cart_id", nullable=true)
     private Cart cart;
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
 
     public Cart getCart() {
         return cart;
@@ -76,13 +84,6 @@ public class Product {
         this.image = image;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
 
 }
 

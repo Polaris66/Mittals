@@ -32,6 +32,7 @@ public class AppController {
     @GetMapping("")
     public String viewHomePage()
     {
+        loggedIn = false;
         return "index";
     }
     @GetMapping("/signup")
@@ -107,6 +108,11 @@ public class AppController {
         return "customers";
     }
 
+
+    @GetMapping("/customer")
+    public String Customer(Model model){
+        return "customer";
+    }
     @GetMapping("/managers")
     public String listManagers(Model model){
         List<User> listUsers = userRepository.findAllByRole(1);
@@ -149,15 +155,28 @@ public class AppController {
     }
 
 
+    @GetMapping("/cart")
+    public String viewProducts(Model model){
+        Cart cart = cartRepository.findByCustomerId(current_user.getId());
+        List<Product> listProducts = productRepository.findAllByCart(cart);
+        model.addAttribute("listProducts",listProducts);
+        int total_Price = 0;
+        for(int i = 0; i < listProducts.size(); i++){
+            total_Price+=listProducts.get(i).getPrice();
+        }
+        model.addAttribute("total",total_Price );
+        return "cart";
+    }
     @GetMapping("/add_to_cart")
     public String AddToCart(Model model){
         model.addAttribute("product", new Product());
         return "add_to_cart";
     }
 
+
     @PostMapping("/final_addition_to_cart")
     public String finalAddToCart(Product product){
-        Product p1 = productRepository.findByName(product.getName());
+        Product p1 = productRepository.findAllByName(product.getName()).get(0);
         product.setDescription(p1.getDescription());
         product.setImage(p1.getImage());
         product.setPrice(p1.getPrice());
@@ -167,10 +186,10 @@ public class AppController {
     }
 
 
-
     @GetMapping("/products_manager")
     public String listProducts_manager(Model model){
-        List<Product> listProducts = productRepository.findAll();
+        Cart cart = cartRepository.findByCustomerId(current_user.getId());
+        List<Product> listProducts = productRepository.findAllByCart(cart);
         model.addAttribute("listProducts",listProducts);
         return "products_manager";
     }

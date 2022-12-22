@@ -3,24 +3,102 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Profile</title>
+  <style>
+
+    h2{
+      font-size: 60px;
+      margin:10px 0 20px 0;
+
+
+    }
+    p{
+      font-size: 40px;
+      margin-top: 0;
+    }
+
+    .btn{
+      border-radius: 10px;
+      height:50px;
+      width:120px;
+      background-color: #4242f5;
+      color:white;
+      font-size: 25px;
+      margin: 10px 0;
+    }
+
+    .centering{
+
+      font-family: cursive;
+      margin:auto;
+      border:1px solid black;
+      width:50%;
+      padding-left:60px;
+    }
+
+    .labels{
+      font-size: 30px;
+
+
+      font-family: cursive;
+    }
+
+    .values{
+      font-size: 20px;
+      font-family: 'Roboto', sans-serif;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-right: 10px;
+      display: inline-block;
+      border:1px solid black;
+      text-align: center;
+    }
+
+  </style>
 </head>
 <body>
-<h2>Profile</h2>
-Your account information is below.
-
-Email: [[${user.getEmail()}]] <br/>
 
 
-First Name: [[${user.getFirstName()}]] <br/>
+<div class="centering container">
+
+  <h2>Profile</h2>
+  <p>Your account information is below.</p>
+
+  <label class="labels" >Email:</label>
+  <div class="values">[[${user.getEmail()}]] </div>
+
+  <br>
+
+  <label class="labels" >First Name:</label>
+  <div class="values">[[${user.getFirstName()}]] </div>
+
+  <br>
+
+  <label class="labels">Last Name:</label>
+  <div class="values">[[${user.getLastName()}]]</div>
+
+  <br>
+
+  <label class="labels">Address:</label>
+
+  <div class="values">[[${user.getLineOne()}]]</div>
+  <div class="values">[[${user.getLineTwo()}]]</div>
+
+  <br>
+
+  <label class="labels">Pin Code:</label>
+  <div class="values">[[${user.getPinCode()}]]</div>
+
+  <br>
+  <label class="labels">Wallet:</label>
+  <div class="values">[[${user.getWallet()}]]</div>
+
+  <br>
+  <a href="http://localhost:8080/">
+  <button class="btn btn-primary btn-lg">Sign Out</button>
+  </a>
+</div>
 
 
-Last Name: [[${user.getLastName()}]] <br/>
 
-
-Address: [[${user.getLineOne()}]] <br/>
-[[${user.getLineTwo()}]] <br/>
-
-
-Pin Code:  [[${user.getPinCode()}]] <br/>
 </body>
 </html>

@@ -13,7 +13,7 @@
     <h1>List of Products</h1>
   </div>
 
-  <form th:object="${listProducts}"
+  <form th:action="@{/add_to_cart}" th:object="${listProducts}"
         method="post" style="max-width: 600px; margin: 0 auto;">
   <div>
       <table class="table table-striped table-bordered">
@@ -37,18 +37,23 @@
         </tbody>
       </table>
   </div>
-  <div>
-
-  </div>
   </form>
 </div>
-<div class="container">
-  <a href="/add_to_cart">
-    <button class="btn btn-primary btn-lg">Add To Cart</button>
-  </a>
-  <a href="/cart">
-    <button class="btn btn-primary btn-lg">See Cart</button>
-  </a>
+<div>
+  <h1>Total</h1>
+  <h1 th:text = "${total}">Total</h1>
 </div>
+<a href="http://localhost:8080/">
+  <button class="btn btn-primary btn-lg">Check Out</button>
+</a>
+
+<a href="/customer">
+  <button class="btn btn-primary btn-lg">Continue Shopping</button>
+</a>
+
+
+<!--<a href="/deleteProductfromCart">-->
+<!--  <button class="btn btn-primary btn-lg">Delete</button>-->
+<!--</a>-->
 </body>
 </html>

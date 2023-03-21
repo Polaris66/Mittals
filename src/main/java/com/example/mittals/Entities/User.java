@@ -15,7 +15,7 @@ public class User {
 
     @Column(nullable = false, unique = true, length = 45)
     private String email;
-
+    
     @Column(nullable = false, length = 64)
     private String password;
 
@@ -79,7 +79,7 @@ public class User {
         this.wallet = wallet;
     }
 
-    @Column(name = "wallet", nullable = false)
+    @Column(name = "wallet")
     private Integer wallet;
 
     public Long getId() {

@@ -35,72 +35,7 @@ public class AppController {
         loggedIn = false;
         return "index";
     }
-    @GetMapping("/signup")
-    public String showRegistrationForm(Model model)
-    {
-     model.addAttribute("user", new User());
-
-     return  "signup_form";
-    }
-    @GetMapping("/add-users")
-    public String showUserForm(Model model)
-    {
-        model.addAttribute("user", new User());
-        return  "add_users";
-    }
-    @PostMapping("/process_add_user")
-    public String addUser(User user){
-        user.setWallet(1000);
-        Cart cart = new Cart();
-        userRepository.save(user);
-        cart.setCustomerId(user.getId());
-        cartRepository.save(cart);
-        return "admin";
-    }
-
-    @GetMapping("/signin")
-    public String showLoginForm(Model model)
-    {
-        model.addAttribute("user", new User());
-        return  "login_form";
-    }
-
-    @PostMapping("/process_login")
-    public String processLogin(User user){
-        User og_user = userRepository.findByEmail(user.getEmail());
-
-        if(og_user!=null) {
-            if (og_user.getPassword().equals(user.getPassword())) {
-                if (og_user.getRole() == user.getRole()) {
-                    current_user = og_user;
-                    loggedIn = true;
-                    if(user.getRole()==0) {
-                        return "customer";
-                    }
-                    if(user.getRole()==1) {
-                        return "manager";
-                    }
-                    if(user.getRole()==2){
-                        return "admin";
-                    }
-                    return "login_form";
-                }
-            }
-        } return "login_form";
-    }
-    @PostMapping("/process_register")
-    public String processRegister(User user){
-
-        user.setRole(0);
-        user.setWallet(1000);
-
-        Cart cart = new Cart();
-        cart.setCustomerId(user.getId());
-        cartRepository.save(cart);
-        userRepository.save(user);
-        return "register_success";
-    }
-
+    
     @GetMapping("/customers")
     public String listUsers(Model model){
         List<User> listUsers = userRepository.findAllByRole(0);

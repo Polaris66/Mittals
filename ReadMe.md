@@ -24,7 +24,7 @@ Hopefully you will see the site up and running.
 
 ## MANAGER who can create & delete products
 
-## CUSTOMER who can purchase products
+## CUSTOMER who can purchase products(multiple quantity, price and wallet functionality )
 
 ## Shopping Cart
 

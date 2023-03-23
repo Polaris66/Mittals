@@ -90,10 +90,10 @@
 
   <br>
   <label class="labels">Wallet:</label>
-  <div class="values">[[${user.getWallet()}]]</div>
+  <span th:text="${user.getWallet()}"></span>
 
   <br>
-  <a href="http://localhost:8080/">
+  <a href="/signout">
   <button class="btn btn-primary btn-lg">Sign Out</button>
   </a>
 </div>

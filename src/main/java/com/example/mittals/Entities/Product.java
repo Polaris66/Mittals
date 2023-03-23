@@ -2,6 +2,8 @@ package com.example.mittals.Entities;
 
 import com.example.mittals.Repositories.CartRepository;
 import jakarta.persistence.*;
+
+import org.hibernate.type.TrueFalseConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.constraints.Pattern;
@@ -29,17 +31,28 @@ public class Product {
 
 
     @Column(name = "price",nullable = false)
-    private int price;
+    private Integer price;
 
+    @Column(name = "quantity", nullable=true)
+    private Integer quantity;
 
     @ManyToOne
     @JoinColumn(name="cart_id", nullable=true)
     private Cart cart;
-    public int getPrice() {
+    
+    public Integer getQuantity(){
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity){
+        this.quantity = quantity;
+    }
+
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

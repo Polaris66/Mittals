@@ -8,9 +8,13 @@
   <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+  <div>
+    <span th:if="${errorMessage}" th:text="${errorMessage}"></span>
+</div>
 <div class="container text-center">
   <div>
-    <h1>List of Products</h1>
+    <h1>Cart</h1>
   </div>
 
   <form th:action="@{/add_to_cart}" th:object="${listProducts}"
@@ -19,20 +23,20 @@
       <table class="table table-striped table-bordered">
         <thead class="thead-dark">
         <tr>
-          <th>Id</th>
           <th>Name</th>
           <th>Description</th>
           <th>Price</th>
           <th>Image</th>
+          <th>Quantity</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="product: ${listProducts} ">
-          <td th:text="${product.id}">Id</td>
           <td th:text="${product.name}">Name</td>
           <td th:text="${product.description}">Description</td>
           <td th:text="${product.price}">Price</td>
-          <td><img th:src="${product.image}" alt="" height=100 width=100>Image</td>
+          <td><img th:src="${product.image}" alt="" height=100 width=100></td>
+          <td th:text="${product.getQuantity()}">Quantity</td>
         </tr>
         </tbody>
       </table>
@@ -42,12 +46,15 @@
 <div>
   <h1>Total</h1>
   <h1 th:text = "${total}">Total</h1>
+
+  <h1>Wallet</h1>
+  <h1 th:text = "${wallet}">Total</h1>
 </div>
-<a href="http://localhost:8080/">
+<a href="/check-out">
   <button class="btn btn-primary btn-lg">Check Out</button>
 </a>
 
-<a href="/customer">
+<a href="/">
   <button class="btn btn-primary btn-lg">Continue Shopping</button>
 </a>
 

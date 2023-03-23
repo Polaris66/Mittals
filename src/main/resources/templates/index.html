@@ -49,13 +49,48 @@
     </style>
   </head>
   <body>
+  
     <div class="navbar">
+    <span th:if="${!loggedIn}">
       <a href="/signup">New User?</a>
       <a href="/signin">Log In</a>
-
+    </span>
+    <span th:if="${loggedIn}">
+      <a href="/profile">Profile</a>
+      <a href="/cart">Cart</a>
+      <a href="/signout">Sign Out</a>
+    </span>
     </div>
+    <div>
+      <span th:if="${errorMessage}" th:text="${errorMessage}"></span>
+  </div>
+  <div>
+    <table class="table table-striped table-bordered">
 
-
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Add To Cart</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="product: ${listProducts} ">
+        <td th:text="${product.name}">Name</td>
+        <td th:text="${product.description}">Description</td>
+        <td th:text="${product.price}">Price</td>
+        <td><img th:src="${product.image}" alt="" height=100 width=100></td>
+        <td>
+          <form th:action="@{/add-to-cart}" method="post" th:object="${product}">
+              <input type="hidden" name="id" th:value="${product.id}" />
+              <button type="submit" class="btn btn-danger">Add to Cart</button>
+          </form>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
   </body>
 </html>
 

@@ -104,8 +104,9 @@
     <body>
         <div class="navbar">
             <a href="/signin">Existing User?</a>
-      
+
           </div>
+
       
         <div class="container text-center" style="margin-top: 30vh; margin-left: auto;">
             <div>
@@ -114,7 +115,7 @@
             <div>
                 <span th:if="${errorMessage}" th:text="${errorMessage}"></span>
             </div>
-            <form th:action="@{/process_login}" th:object="${user}" method="post" class="login-form">
+            <form th:action="@{/process_register}" th:object="${user}" method="post" class="login-form">
                 <div class="form-group row">
                     <label class="col-4 col-form-label">E-mail: </label>
                     <div class="col-8">
@@ -127,6 +128,14 @@
                       <input type="password" th:field="*{password}" class="form-control"
                       required minlength="6" maxlength="10"/>                    </div>
                 </div>
+                <html>
+                  <head>
+                      <title>Redirecting using Form Tags</title>
+                    </head>
+                  <body> 
+                  </body>
+                </html>
+              
 
       <div class="form-group row">
         <label class="col-4 col-form-label">First Name: </label>

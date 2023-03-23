@@ -29,6 +29,17 @@ public class User {
     @Column(name = "last_name", length = 20)
     private String lastName;
 
+    @OneToOne
+    @JoinColumn(name="cart_id", nullable=true)
+    private Cart cart;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     @Column(name = "line_one",length = 50)
     private String lineOne;

@@ -6,11 +6,18 @@
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .container{
+            height: 200px;
+            width: 500px;
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
 <div class="container text-center">
     <div>
-        <h1>List of Managers</h1>
+        <h1>List of Users</h1>
     </div>
 
     <div>
@@ -21,6 +28,9 @@
                 <th>E-mail</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Role</th>
+                <th>Remove</th>
+
             </tr>
             </thead>
             <tbody>
@@ -29,10 +39,30 @@
                 <td th:text="${user.email}">E-mail</td>
                 <td th:text="${user.firstName}">First Name</td>
                 <td th:text="${user.lastName}">Last Name</td>
+                <td th:text="${user.role}">Role</td>
+
+                <!-- <td >
+                    <span th:if="${!user.role}">
+                        <td th:text="$Manager">Role</td>
+                    </span>
+                </td> -->
+                <td>
+                    <form th:action="@{/process_remove_user}" method="post" th:object="${user}">
+                        <input type="hidden" name="id" th:value="${user.id}" />
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+
             </tr>
             </tbody>
         </table>
     </div>
+</div>
+
+<div class="container">
+    <a href="/add-users">
+        <button class="btn btn-primary btn-lg">Add a User</button>
+    </a>
 </div>
 </body>
 </html>

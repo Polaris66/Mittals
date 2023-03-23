@@ -10,4 +10,6 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     List<Product> findAllByName(String name);
     List<Product> findAllByCart(Cart cart);
     Product findByName(String name);
+    List<Product> findAllByCartIsNull();
+    Product findByNameAndCart(String name, Cart cart);
 }
